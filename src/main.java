@@ -38,8 +38,8 @@ public class main {
             for (int x = 0; x < WIDTH; x++) {
                 Color col = new Color(greyScale.getRGB(x, y));
                 int greyVal = col.getRed() >> 2;
-                outputNormal = outputNormal.concat(asciiOrderedByDensity.substring(greyVal, greyVal+1));
-                outputInverted = outputInverted.concat(asciiReversed.substring(greyVal, greyVal+1));
+                outputInverted = outputInverted.concat(asciiOrderedByDensity.substring(greyVal, greyVal+1));
+                outputNormal = outputNormal.concat(asciiReversed.substring(greyVal, greyVal+1));
             }
             outputNormal = outputNormal.concat("\n");
             outputInverted = outputInverted.concat("\n");
@@ -49,16 +49,12 @@ public class main {
         BufferedWriter writer = null;
         try {
             writer = new BufferedWriter(new FileWriter("res/" + filename +  (System.currentTimeMillis() / 1000) + ".txt"));
-            writer.write(outputInverted);
-            writer = new BufferedWriter(new FileWriter("res/" + filename + "INVERTED" +   (System.currentTimeMillis() / 1000) + ".txt"));
             writer.write(outputNormal);
+            writer = new BufferedWriter(new FileWriter("res/" + filename + "INVERTED" +   (System.currentTimeMillis() / 1000) + ".txt"));
+            writer.write(outputInverted);
         } catch (
                 IOException e) {
             e.printStackTrace();
         }
     }
 }
-
-
-
-
